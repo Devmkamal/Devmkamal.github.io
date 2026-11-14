@@ -4,251 +4,319 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mahmoud Kamal</title>
-<meta name="description" content="Mahmoud Kamal — Senior Mobile Developer (iOS / Android) & Mobile Team Lead. Kotlin, Jetpack Compose, KMP/CMP.">
+<meta name="description" content="Mahmoud Kamal — Senior Mobile Developer (iOS / Android) & Mobile Team Lead. Kotlin, Jetpack Compose, KMP/CMP, AI-assisted development.">
 <style>
   :root {
-    --bg: #ffffff;
-    --surface: #ffffff;
-    --ink: #1a1a1a;
-    --muted: #555;
-    --faint: #777;
-    --navy: #0f2a4a;
-    --accent: #2b5a8c;
-    --line: #e4e8ee;
-    --chip: #eef3f9;
-    --maxw: 820px;
+    --bg: #f4f2ee;          /* LinkedIn page gray */
+    --card: #ffffff;
+    --ink: #000000e6;
+    --sub: #00000099;
+    --faint: #00000066;
+    --line: #00000014;
+    --blue: #0a66c2;        /* LinkedIn blue */
+    --blue-ink: #0a66c2;
+    --chip: #f3f2ef;
+    --banner1: #0a66c2;
+    --banner2: #004182;
+    --maxw: 760px;
+    --radius: 12px;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0f141b; --surface: #161c25; --ink: #e9edf3; --muted: #aab4c0;
-      --faint: #8893a0; --navy: #cfe0f5; --accent: #7fb0e6; --line: #26303c; --chip: #1c2530;
+      --bg: #1b1f23; --card: #26292c; --ink: #ffffffe6; --sub: #ffffff99;
+      --faint: #ffffff66; --line: #ffffff1a; --blue: #70b5f9; --blue-ink: #70b5f9;
+      --chip: #2f3338; --banner1: #1d4e7e; --banner2: #0f2d49;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #0f141b; --surface: #161c25; --ink: #e9edf3; --muted: #aab4c0;
-    --faint: #8893a0; --navy: #cfe0f5; --accent: #7fb0e6; --line: #26303c; --chip: #1c2530;
+    --bg: #1b1f23; --card: #26292c; --ink: #ffffffe6; --sub: #ffffff99;
+    --faint: #ffffff66; --line: #ffffff1a; --blue: #70b5f9; --blue-ink: #70b5f9;
+    --chip: #2f3338; --banner1: #1d4e7e; --banner2: #0f2d49;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; }
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    line-height: 1.5;
-    font-size: 15px;
-    padding: 0 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.45;
+    font-size: 14px;
+    padding: 24px 12px 60px;
   }
-  .wrap {
-    max-width: var(--maxw);
-    margin: 0 auto;
-    padding: 40px 0 64px;
+  .wrap { max-width: var(--maxw); margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
   }
-  .name { font-size: 34px; font-weight: 700; letter-spacing: 0.3px; color: var(--navy); line-height: 1.1; }
-  .role { font-size: 16px; font-weight: 600; color: var(--accent); margin-top: 6px; }
-  .contact { margin-top: 12px; font-size: 13.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 0; align-items: center; }
-  .contact a { color: var(--accent); text-decoration: none; }
-  .contact a:hover { text-decoration: underline; }
-  .sep { color: var(--line); margin: 0 10px; }
-  h2 {
-    font-size: 13px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--navy);
-    border-bottom: 2px solid var(--navy); padding-bottom: 4px; margin: 30px 0 12px;
+  .card-pad { padding: 20px 24px 24px; }
+
+  /* Hero */
+  .banner { height: 120px; background: linear-gradient(120deg, var(--banner1), var(--banner2)); position: relative; }
+  .avatar {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: linear-gradient(135deg, #0a66c2, #004182);
+    border: 4px solid var(--card);
+    position: absolute; left: 24px; bottom: -48px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 44px; font-weight: 600; letter-spacing: 1px;
   }
-  p.summary { text-align: left; color: var(--ink); }
-  b, strong { color: var(--ink); font-weight: 700; }
-  .skills { display: grid; grid-template-columns: 150px 1fr; row-gap: 7px; column-gap: 14px; }
-  .skills .k { font-weight: 700; color: var(--accent); }
-  .job { margin-bottom: 16px; }
-  .job-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 2px; }
-  .job-title { font-weight: 700; font-size: 15.5px; }
-  .job-co { color: var(--accent); font-weight: 600; }
-  .job-date { font-size: 13px; color: var(--faint); white-space: nowrap; }
-  ul { margin: 6px 0 0 20px; }
-  li { margin-bottom: 4px; }
-  .proj { margin-bottom: 10px; }
-  .proj b { color: var(--navy); }
-  .proj a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); }
-  .proj a:hover { border-bottom-style: solid; }
-  .tag { display: inline-block; font-size: 11.5px; background: var(--chip); color: var(--accent); border-radius: 20px; padding: 1px 9px; margin-left: 6px; vertical-align: 1px; text-decoration: none; border: none; }
-  .tag:hover { background: var(--accent); color: #fff; }
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 24px; color: var(--muted); font-size: 14px; }
-  .footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--faint); }
-  .pdfbtn {
-    display: inline-flex; align-items: center; gap: 7px; margin-top: 16px;
-    background: var(--navy); color: #fff; text-decoration: none;
-    font-size: 13.5px; font-weight: 600; padding: 9px 16px; border-radius: 8px;
-    transition: opacity .15s ease;
-    border: none; cursor: pointer; font-family: inherit;
+  .hero-body { padding: 60px 24px 22px; }
+  .name { font-size: 26px; font-weight: 600; letter-spacing: -0.2px; }
+  .headline { font-size: 15px; color: var(--ink); margin-top: 4px; }
+  .meta { font-size: 13px; color: var(--sub); margin-top: 8px; }
+  .meta a { color: var(--blue-ink); font-weight: 600; text-decoration: none; }
+  .meta a:hover { text-decoration: underline; }
+  .dot { margin: 0 6px; color: var(--faint); }
+  .actions { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 14px; font-weight: 600; text-decoration: none; cursor: pointer;
+    border-radius: 20px; padding: 7px 16px; border: 1px solid transparent; font-family: inherit;
   }
-  .pdfbtn[disabled] { opacity: .6; cursor: default; }
-  .pdfbtn:hover { opacity: .88; }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .pdfbtn { background: var(--accent); color: #0f141b; }
+  .btn-primary { background: var(--blue); color: #fff; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn-primary { color: #1b1f23; } }
+  :root[data-theme="dark"] .btn-primary { color: #1b1f23; }
+  .btn-primary:hover { filter: brightness(1.08); }
+  .btn-ghost { background: transparent; color: var(--blue-ink); border-color: var(--blue-ink); }
+  .btn-ghost:hover { background: #0a66c214; }
+  .btn svg { width: 16px; height: 16px; }
+
+  h2 { font-size: 20px; font-weight: 600; letter-spacing: -0.2px; margin-bottom: 14px; }
+
+  /* Experience / items */
+  .item { display: flex; gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+  .item:first-of-type { border-top: none; padding-top: 2px; }
+  .logo {
+    flex: 0 0 48px; width: 48px; height: 48px; border-radius: 8px;
+    background: var(--chip); display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 15px; color: var(--blue-ink); overflow: hidden; text-align: center; line-height: 1.05;
   }
-  :root[data-theme="dark"] .pdfbtn { background: var(--accent); color: #0f141b; }
-  .pdfbtn svg { width: 15px; height: 15px; }
+  .logo small { font-size: 9px; letter-spacing: .5px; }
+  .it-body { flex: 1; min-width: 0; }
+  .it-title { font-weight: 600; font-size: 15px; }
+  .it-co { font-size: 13.5px; color: var(--ink); }
+  .it-date { font-size: 12.5px; color: var(--sub); margin-top: 1px; }
+  .it-desc { font-size: 13.5px; color: var(--ink); margin-top: 7px; }
+  .it-desc ul { margin: 4px 0 0 18px; }
+  .it-desc li { margin-bottom: 3px; }
+
+  /* About */
+  .about { font-size: 14px; color: var(--ink); }
+  .about b { font-weight: 600; }
+
+  /* Skills pills */
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    font-size: 13px; font-weight: 600; color: var(--ink);
+    background: var(--chip); border: 1px solid var(--line);
+    border-radius: 16px; padding: 5px 13px;
+  }
+  .pill.hi { background: #0a66c214; color: var(--blue-ink); border-color: #0a66c233; }
+
+  /* Projects */
+  .proj { padding: 12px 0; border-top: 1px solid var(--line); }
+  .proj:first-of-type { border-top: none; padding-top: 2px; }
+  .proj-h { font-weight: 600; font-size: 14.5px; }
+  .proj-h a { color: var(--blue-ink); text-decoration: none; font-weight: 600; font-size: 12.5px; margin-left: 6px; }
+  .proj-h a:hover { text-decoration: underline; }
+  .proj-d { font-size: 13.5px; color: var(--sub); margin-top: 3px; }
+
+  .edu-row { display: flex; gap: 14px; align-items: flex-start; padding: 6px 0; }
+  .edu-row .logo { font-size: 20px; }
+
+  .foot { text-align: center; font-size: 12px; color: var(--faint); padding: 8px 0 0; }
+
   @media (max-width: 560px) {
-    .wrap { padding: 28px 0 48px; }
-    .name { font-size: 28px; }
-    .skills { grid-template-columns: 1fr; row-gap: 2px; }
-    .skills .k { margin-top: 8px; }
-    .two-col { grid-template-columns: 1fr; }
-    .job-date { font-size: 12px; }
-  }
-  .print-only { display: none; }
-  @page { size: A4; margin: 12mm 14mm; }
-  @media print {
-    :root, :root[data-theme="dark"], :root:not([data-theme="light"]) {
-      --bg: #ffffff; --surface: #ffffff; --ink: #1a1a1a; --muted: #555; --faint: #777;
-      --navy: #0f2a4a; --accent: #2b5a8c; --line: #e4e8ee; --chip: #eef3f9;
-    }
-    /* Arial embeds as TrueType with a Unicode map; Helvetica Neue prints as Type3 and loses punctuation for ATS parsers */
-    body { font-family: Arial, "Liberation Sans", sans-serif; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .wrap { max-width: none; padding: 0; }
-    .pdfbtn, .tag, .footer, .screen-only { display: none !important; }
-    .print-only { display: inline; }
-    body { font-size: 11px; line-height: 1.38; }
-    .name { font-size: 24px; }
-    .role { font-size: 13px; margin-top: 3px; }
-    .contact { font-size: 10.5px; margin-top: 6px; }
-    .sep { margin: 0 7px; color: #bbb; }
-    h2 { font-size: 10.5px; margin: 13px 0 6px; padding-bottom: 2px; border-bottom-width: 1.5px; }
-    .skills { grid-template-columns: 110px 1fr; row-gap: 2px; }
-    .job { margin-bottom: 7px; break-inside: avoid; }
-    .job-title { font-size: 11.5px; }
-    .job-date { font-size: 10.5px; }
-    ul { margin: 2px 0 0 16px; }
-    li { margin-bottom: 1px; }
-    .proj { margin-bottom: 4px; }
-    .two-col { font-size: 11px; gap: 2px 24px; }
+    body { padding: 12px 8px 40px; }
+    .avatar { width: 92px; height: 92px; left: 16px; bottom: -40px; font-size: 34px; }
+    .hero-body { padding: 50px 16px 18px; }
+    .card-pad { padding: 16px; }
+    .name { font-size: 22px; }
+    h2 { font-size: 18px; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="name">Mahmoud Kamal</div>
-  <div class="role">Senior Mobile Developer (iOS / Android) &amp; Mobile Team Lead</div>
-  <div class="contact">
-    <a href="tel:+201021431989">+20 102 143 1989</a><span class="sep">|</span>
-    <a href="mailto:dev.mkamal@gmail.com">dev.mkamal@gmail.com</a><span class="sep">|</span>
-    <span>Cairo, Egypt</span><span class="sep">|</span>
-    <a href="https://www.linkedin.com/in/mahmoud-kamal-3ab423a3" target="_blank" rel="noopener"><span class="screen-only">LinkedIn</span><span class="print-only">linkedin.com/in/mahmoud-kamal-3ab423a3</span></a>
-  </div>
-    <a class="pdfbtn" href="Mahmoud_Kamal_Mobile_Developer_CV.pdf" download>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    Download PDF
-  </a>
-
-  <h2>Professional Summary</h2>
-  <p class="summary">
-    Senior Mobile Developer and Team Lead with 14+ years of experience, specializing in building
-    native <b>iOS and Android</b> applications end to end &mdash; from architecture and API integration
-    to App Store, Google Play and Huawei AppGallery release. Expert in <b>Kotlin, Jetpack Compose and
-    Kotlin&nbsp;Multiplatform (KMP/CMP)</b>, with deep backend and REST&nbsp;API integration experience.
-    Have delivered multiple production systems for the <b>Saudi and Egyptian markets</b>, including POS,
-    fintech, healthcare and fleet platforms, with a strong focus on performance, security and full
-    Arabic/English (RTL) support.
-  </p>
-
-  <h2>Core Skills</h2>
-  <div class="skills">
-    <div class="k">Mobile (Native)</div>
-    <div>Android (Kotlin, Java), Jetpack Compose, iOS integration (Swift/SwiftUI APIs), Kotlin&nbsp;Multiplatform (KMP), Compose&nbsp;Multiplatform (CMP)</div>
-    <div class="k">APIs &amp; Backend</div>
-    <div>REST API integration, Ktor, Laravel/PHP, Node.js/NestJS, PostgreSQL, Docker, Oracle Cloud (OCI)</div>
-    <div class="k">App Delivery</div>
-    <div>Google Play, Apple App Store, Huawei AppGallery (HMS); CI/CD, versioning &amp; release management; offline-first sync</div>
-    <div class="k">Integrations</div>
-    <div>Push notifications (FCM/HMS), Apple &amp; Google Wallet passes, biometrics, maps &amp; live GPS tracking, in-app payments</div>
-    <div class="k">App Security</div>
-    <div>RASP, certificate pinning &amp; transparency, root detection; JADX, Frida, Apktool (analysis)</div>
-    <div class="k">Other</div>
-    <div>Flutter/Dart, ZATCA e-invoicing, full Arabic/English (RTL) UI, Git, Agile/Scrum team leadership</div>
-  </div>
-
-  <h2>Professional Experience</h2>
-
-  <div class="job">
-    <div class="job-head">
-      <div><span class="job-title">Technical Team Lead | Senior Mobile Developer</span> &mdash; <span class="job-co">Altawasol (TOO)</span></div>
-      <div class="job-date">Jan 2018 &ndash; Present</div>
+  <!-- HERO -->
+  <div class="card">
+    <div class="banner"><div class="avatar">MK</div></div>
+    <div class="hero-body">
+      <div class="name">Mahmoud Kamal</div>
+      <div class="headline">Senior Mobile Developer (iOS / Android) &amp; Mobile Team Lead · Kotlin · Jetpack Compose · KMP/CMP · AI-Assisted Development</div>
+      <div class="meta">
+        Cairo, Egypt
+        <span class="dot">·</span>
+        <a href="tel:+201021431989">+20 102 143 1989</a>
+        <span class="dot">·</span>
+        <a href="mailto:dev.mkamal@gmail.com">dev.mkamal@gmail.com</a>
+        <span class="dot">·</span>
+        <a href="https://www.linkedin.com/in/mahmoud-kamal-3ab423a3" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="Mahmoud_Kamal_Mobile_Developer_CV.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
+        <a class="btn btn-ghost" href="mailto:dev.mkamal@gmail.com">Contact</a>
+      </div>
     </div>
-    <ul>
-      <li>Technical lead for the <b>TOO ride-hailing platform</b>, delivering both sides of the marketplace &mdash; TOO Passenger and TOO Captain apps &mdash; in Kotlin/Android.</li>
-      <li>Own the full stack from mobile through backend: services in <b>Ktor and Laravel/PHP</b> backed by PostgreSQL, deployed on Oracle Cloud (OCI) with Docker and Nginx.</li>
-      <li>Integrated real-time <b>GPS tracking, maps, push notifications and in-app payments</b> via REST APIs across a multi-app ecosystem (8+ production apps on Google Play).</li>
-      <li>Lead architecture decisions, code review and release management while staying hands-on across the codebase.</li>
-    </ul>
   </div>
 
-  <div class="job">
-    <div class="job-head">
-      <div><span class="job-title">Android Team Lead</span> &mdash; <span class="job-co">Sahm Apps</span></div>
-      <div class="job-date">Nov 2022 &ndash; Aug 2026</div>
+  <!-- ABOUT -->
+  <div class="card"><div class="card-pad">
+    <h2>About</h2>
+    <p class="about">
+      Senior Mobile Developer and Team Lead with 14+ years of experience, specializing in building
+      native <b>iOS and Android</b> applications end to end — from architecture and API integration
+      to App Store, Google Play and Huawei AppGallery release. Expert in <b>Kotlin, Jetpack Compose
+      and Kotlin Multiplatform (KMP/CMP)</b>, with deep backend and REST API integration experience,
+      and hands-on <b>AI-assisted development</b> using tools like Claude Code. Have delivered
+      multiple production systems for the <b>Saudi and Egyptian markets</b>, including POS, fintech,
+      healthcare and fleet platforms, with a strong focus on performance, security and full
+      Arabic/English (RTL) support.
+    </p>
+  </div></div>
+
+  <!-- EXPERIENCE -->
+  <div class="card"><div class="card-pad">
+    <h2>Experience</h2>
+
+    <div class="item">
+      <div class="logo"><small>DevFact</small></div>
+      <div class="it-body">
+        <div class="it-title">Founder &amp; Lead Mobile Engineer</div>
+        <div class="it-co">DevFact (Dev Fact Software) · Self-employed</div>
+        <div class="it-date">Jan 2024 – Present</div>
+        <div class="it-desc">
+          <ul>
+            <li>Deliver native iOS/Android products end to end for clients across the Saudi and Egyptian markets, from architecture and API/backend integration to App Store, Google Play and Huawei AppGallery release.</li>
+            <li>Shipped production systems including a <b>ZATCA-compliant POS</b>, fintech, healthcare and fleet platforms with Arabic/English (RTL) support and mobile app security (RASP, cert pinning).</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <ul>
-      <li>Led the Android team building the <b>SAHM food-delivery ecosystem</b> (customer, driver and partner apps) in Kotlin and Jetpack Compose.</li>
-      <li>Owned architecture, code quality and store delivery; integrated backend APIs, live tracking and secure payment flows.</li>
-    </ul>
-  </div>
 
-  <div class="job">
-    <div class="job-head">
-      <div><span class="job-title">Founder &amp; Lead Mobile Engineer</span> &mdash; <span class="job-co">DevFact (Dev Fact Software)</span></div>
-      <div class="job-date">2015 &ndash; Present</div>
+    <div class="item">
+      <div class="logo"><small>SAHM</small></div>
+      <div class="it-body">
+        <div class="it-title">Android Team Lead</div>
+        <div class="it-co">Sahm · Full-time</div>
+        <div class="it-date">Nov 2022 – Aug 2026 · Egypt</div>
+        <div class="it-desc">
+          <ul>
+            <li>Led the Android team building the <b>SAHM food-delivery ecosystem</b> (customer, driver and partner apps) in Kotlin and Jetpack Compose.</li>
+            <li>Owned architecture, code quality and store delivery; integrated backend APIs, live tracking and secure payment flows.</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <ul>
-      <li>Deliver native iOS/Android products end to end for clients across the Saudi and Egyptian markets, from requirements to App Store / Play / AppGallery release.</li>
-      <li>Shipped production systems including a <b>ZATCA-compliant POS</b>, healthcare, fintech and fleet platforms with Arabic/English (RTL) support and mobile app security (RASP, cert pinning).</li>
-    </ul>
-  </div>
 
-  <div class="job">
-    <div class="job-head">
-      <div><span class="job-title">Senior Android Developer / Mobile Engineer</span> &mdash; <span class="job-co">Multiple companies &amp; clients</span></div>
-      <div class="job-date">2011 &ndash; 2018</div>
+    <div class="item">
+      <div class="logo"><small>AL-TAWASOL</small></div>
+      <div class="it-body">
+        <div class="it-title">Technical Team Lead | Senior Mobile Developer</div>
+        <div class="it-co">Al-Tawasol (TOO) · Full-time</div>
+        <div class="it-date">Jan 2018 – Nov 2022</div>
+        <div class="it-desc">
+          <ul>
+            <li>Technical lead for the <b>TOO ride-hailing platform</b> — TOO Passenger and TOO Captain apps — in Kotlin/Android.</li>
+            <li>Owned the full stack from mobile through backend: services in <b>Ktor and Laravel/PHP</b> backed by PostgreSQL, deployed on Oracle Cloud (OCI) with Docker and Nginx.</li>
+            <li>Integrated real-time GPS tracking, maps, push notifications and in-app payments via REST APIs across a multi-app ecosystem (8+ production apps on Google Play).</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <ul>
-      <li>Android developer since 2011 (Java, then Kotlin from 2015); delivered mobile apps across the full development cycle for Saudi and Egyptian clients, including a trainer/mentor role.</li>
-    </ul>
-  </div>
 
-  <h2>Selected Projects</h2>
-  <div class="proj">
-    <b>MartyPOS</b> &mdash; Full point-of-sale suite (native app + backend + admin dashboard) with offline-first sync, ZATCA e-invoicing, and delivery to Google Play, App Store and Huawei AppGallery.
-    <a class="tag" href="https://martypos.com" target="_blank" rel="noopener">martypos.com ↗</a>
-  </div>
-  <div class="proj">
-    <b>TOO &amp; Mapy World</b> &mdash; Multi-app ride-hailing and mapping platform; also built the <b>Mapy SDK</b> distributed to third-party developers via Maven (Android) and CocoaPods (iOS).
-    <a class="tag" href="https://play.google.com/store/apps/details?id=com.altawasolgolf.lutfipassenger" target="_blank" rel="noopener">TOO on Google Play ↗</a>
-    <a class="tag" href="https://play.google.com/store/apps/details?id=world.mapy.mobile" target="_blank" rel="noopener">Mapy World ↗</a>
-  </div>
-  <div class="proj">
-    <b>Sahm</b> &mdash; Food-delivery ecosystem (customer, driver and partner apps) in Kotlin/Jetpack Compose, with live order tracking, maps, push notifications and secure in-app payments.
-    <a class="tag" href="https://play.google.com/store/apps/details?id=com.saham" target="_blank" rel="noopener">Sahm on Google Play ↗</a>
-  </div>
-  <div class="proj">
-    <b>Emdad Homecare</b> &mdash; OCI-hosted healthcare delivery app (iOS &amp; Android) integrating scheduling, tracking and secure patient data flows via REST APIs.
-    <a class="tag" href="https://apps.apple.com/sa/app/emdad-homecare/id6756223898" target="_blank" rel="noopener">Emdad on App Store ↗</a>
-  </div>
-  <div class="proj">
-    <b>Naqlera</b> &mdash; Fleet management platform (iOS &amp; Android) with live vehicle tracking, route management and real-time telemetry via REST APIs.
-    <a class="tag" href="https://naqlera.com" target="_blank" rel="noopener">naqlera.com ↗</a>
-  </div>
+    <div class="item">
+      <div class="logo">⌁</div>
+      <div class="it-body">
+        <div class="it-title">Senior Android Developer / Mobile Engineer</div>
+        <div class="it-co">Multiple companies &amp; clients</div>
+        <div class="it-date">2011 – 2018</div>
+        <div class="it-desc">
+          Android developer since 2011 (Java, then Kotlin from 2015); delivered mobile apps across the full development cycle for Saudi and Egyptian clients, including a trainer/mentor role.
+        </div>
+      </div>
+    </div>
+  </div></div>
 
-  <h2>Education &amp; Highlights</h2>
-  <div class="two-col">
-    <div>&bull; Bachelor of Information Systems</div>
-    <div>&bull; 100+ apps built and shipped to date</div>
-    <div>&bull; 14+ years building mobile apps (Android since 2011)</div>
-    <div>&bull; Native Arabic, fluent English</div>
-  </div>
+  <!-- SKILLS -->
+  <div class="card"><div class="card-pad">
+    <h2>Skills</h2>
+    <div class="pills">
+      <span class="pill hi">Kotlin</span>
+      <span class="pill hi">Kotlin Multiplatform (KMP)</span>
+      <span class="pill hi">Compose Multiplatform (CMP)</span>
+      <span class="pill hi">Jetpack Compose</span>
+      <span class="pill hi">Android Development</span>
+      <span class="pill hi">iOS Development</span>
+      <span class="pill hi">Agentic AI Development</span>
+      <span class="pill hi">Prompt Engineering</span>
+      <span class="pill hi">AI-Assisted Development</span>
+      <span class="pill hi">Large Language Models (LLM)</span>
+      <span class="pill">Ktor</span>
+      <span class="pill">Laravel / PHP</span>
+      <span class="pill">Node.js / NestJS</span>
+      <span class="pill">PostgreSQL</span>
+      <span class="pill">REST APIs</span>
+      <span class="pill">Docker</span>
+      <span class="pill">Oracle Cloud (OCI)</span>
+      <span class="pill">App Security (RASP, Cert Pinning)</span>
+      <span class="pill">Technical Leadership</span>
+      <span class="pill">Software Architecture</span>
+      <span class="pill">Team Leadership</span>
+      <span class="pill">Mobile Application Development</span>
+      <span class="pill">ZATCA e-Invoicing</span>
+      <span class="pill">Arabic/English (RTL)</span>
+    </div>
+  </div></div>
 
-  <div class="footer">
-    Mahmoud Kamal &middot; Senior Mobile Developer &middot; Cairo, Egypt
-  </div>
+  <!-- PROJECTS -->
+  <div class="card"><div class="card-pad">
+    <h2>Projects</h2>
+    <div class="proj">
+      <div class="proj-h">MartyPOS <a href="https://martypos.com" target="_blank" rel="noopener">martypos.com ↗</a></div>
+      <div class="proj-d">Full point-of-sale suite (native app + backend + admin dashboard) with offline-first sync, ZATCA e-invoicing, delivered to Google Play, App Store and Huawei AppGallery.</div>
+    </div>
+    <div class="proj">
+      <div class="proj-h">TOO &amp; Mapy World
+        <a href="https://play.google.com/store/apps/details?id=com.altawasolgolf.lutfipassenger" target="_blank" rel="noopener">TOO ↗</a>
+        <a href="https://play.google.com/store/apps/details?id=world.mapy.mobile" target="_blank" rel="noopener">Mapy World ↗</a>
+      </div>
+      <div class="proj-d">Multi-app ride-hailing and mapping platform; also built the Mapy SDK distributed to third-party developers via Maven (Android) and CocoaPods (iOS).</div>
+    </div>
+    <div class="proj">
+      <div class="proj-h">Sahm <a href="https://play.google.com/store/apps/details?id=com.saham" target="_blank" rel="noopener">Google Play ↗</a></div>
+      <div class="proj-d">Food-delivery ecosystem (customer, driver and partner apps) in Kotlin/Jetpack Compose, with live order tracking, maps, push notifications and secure in-app payments.</div>
+    </div>
+    <div class="proj">
+      <div class="proj-h">Emdad Homecare <a href="https://apps.apple.com/sa/app/emdad-homecare/id6756223898" target="_blank" rel="noopener">App Store ↗</a></div>
+      <div class="proj-d">OCI-hosted healthcare delivery app (iOS &amp; Android) integrating scheduling, tracking and secure patient data flows via REST APIs.</div>
+    </div>
+    <div class="proj">
+      <div class="proj-h">Naqlera <a href="https://naqlera.com" target="_blank" rel="noopener">naqlera.com ↗</a></div>
+      <div class="proj-d">Fleet management platform (iOS &amp; Android) with live vehicle tracking, route management and real-time telemetry via REST APIs.</div>
+    </div>
+  </div></div>
+
+  <!-- EDUCATION -->
+  <div class="card"><div class="card-pad">
+    <h2>Education &amp; Highlights</h2>
+    <div class="edu-row">
+      <div class="logo">🎓</div>
+      <div class="it-body">
+        <div class="it-title">Bachelor of Information Systems</div>
+        <div class="it-date">14+ years in software · Android since 2011 · 100+ apps built and shipped · Native Arabic, fluent English</div>
+      </div>
+    </div>
+  </div></div>
+
+  <div class="foot">Mahmoud Kamal · Senior Mobile Developer · Cairo, Egypt</div>
 
 </div>
-
 </body>
 </html>
