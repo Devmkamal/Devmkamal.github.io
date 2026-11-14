@@ -94,6 +94,33 @@
     .two-col { grid-template-columns: 1fr; }
     .job-date { font-size: 12px; }
   }
+  .print-only { display: none; }
+  @page { size: A4; margin: 12mm 14mm; }
+  @media print {
+    :root, :root[data-theme="dark"], :root:not([data-theme="light"]) {
+      --bg: #ffffff; --surface: #ffffff; --ink: #1a1a1a; --muted: #555; --faint: #777;
+      --navy: #0f2a4a; --accent: #2b5a8c; --line: #e4e8ee; --chip: #eef3f9;
+    }
+    /* Arial embeds as TrueType with a Unicode map; Helvetica Neue prints as Type3 and loses punctuation for ATS parsers */
+    body { font-family: Arial, "Liberation Sans", sans-serif; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .wrap { max-width: none; padding: 0; }
+    .pdfbtn, .tag, .footer, .screen-only { display: none !important; }
+    .print-only { display: inline; }
+    body { font-size: 11px; line-height: 1.38; }
+    .name { font-size: 24px; }
+    .role { font-size: 13px; margin-top: 3px; }
+    .contact { font-size: 10.5px; margin-top: 6px; }
+    .sep { margin: 0 7px; color: #bbb; }
+    h2 { font-size: 10.5px; margin: 13px 0 6px; padding-bottom: 2px; border-bottom-width: 1.5px; }
+    .skills { grid-template-columns: 110px 1fr; row-gap: 2px; }
+    .job { margin-bottom: 7px; break-inside: avoid; }
+    .job-title { font-size: 11.5px; }
+    .job-date { font-size: 10.5px; }
+    ul { margin: 2px 0 0 16px; }
+    li { margin-bottom: 1px; }
+    .proj { margin-bottom: 4px; }
+    .two-col { font-size: 11px; gap: 2px 24px; }
+  }
 </style>
 </head>
 <body>
@@ -105,7 +132,7 @@
     <a href="tel:+201021431989">+20 102 143 1989</a><span class="sep">|</span>
     <a href="mailto:dev.mkamal@gmail.com">dev.mkamal@gmail.com</a><span class="sep">|</span>
     <span>Cairo, Egypt</span><span class="sep">|</span>
-    <a href="https://www.linkedin.com/in/mahmoud-kamal-3ab423a3" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/mahmoud-kamal-3ab423a3" target="_blank" rel="noopener"><span class="screen-only">LinkedIn</span><span class="print-only">linkedin.com/in/mahmoud-kamal-3ab423a3</span></a>
   </div>
     <a class="pdfbtn" href="Mahmoud_Kamal_Mobile_Developer_CV.pdf" download>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
