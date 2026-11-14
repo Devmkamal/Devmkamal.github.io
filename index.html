@@ -92,8 +92,11 @@
     flex: 0 0 48px; width: 48px; height: 48px; border-radius: 8px;
     background: var(--chip); display: flex; align-items: center; justify-content: center;
     font-weight: 700; font-size: 15px; color: var(--blue-ink); overflow: hidden; text-align: center; line-height: 1.05;
+    position: relative;
   }
-  .logo small { font-size: 9px; letter-spacing: .5px; }
+  .logo small { font-size: 9px; letter-spacing: .5px; padding: 2px; }
+  /* Company logo image: sits on top of the text fallback; if it fails to load, the text shows through */
+  .logo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #fff; border-radius: 8px; }
   .it-body { flex: 1; min-width: 0; }
   .it-title { font-weight: 600; font-size: 15px; }
   .it-co { font-size: 13.5px; color: var(--ink); }
@@ -186,7 +189,7 @@
     <h2>Experience</h2>
 
     <div class="item">
-      <div class="logo"><small>DevFact</small></div>
+      <div class="logo"><small>DevFact</small><img src="logos/devfact.png" alt="DevFact" onerror="this.remove()"></div>
       <div class="it-body">
         <div class="it-title">Founder &amp; Lead Mobile Engineer</div>
         <div class="it-co">DevFact (Dev Fact Software) · Self-employed</div>
@@ -201,44 +204,81 @@
     </div>
 
     <div class="item">
-      <div class="logo"><small>SAHM</small></div>
+      <div class="logo"><small>SAHM</small><img src="logos/sahm.png" alt="Sahm" onerror="this.remove()"></div>
       <div class="it-body">
         <div class="it-title">Android Team Lead</div>
         <div class="it-co">Sahm · Full-time</div>
-        <div class="it-date">Nov 2022 – Aug 2026 · Egypt</div>
+        <div class="it-date">Nov 2022 – Aug 2026 · Egypt · On-site</div>
         <div class="it-desc">
           <ul>
-            <li>Led the Android team building the <b>SAHM food-delivery ecosystem</b> (customer, driver and partner apps) in Kotlin and Jetpack Compose.</li>
-            <li>Owned architecture, code quality and store delivery; integrated backend APIs, live tracking and secure payment flows.</li>
+            <li>Led the Android team building the <b>SAHM food-delivery ecosystem</b> (customer, Driver and Partner apps) in Kotlin and Jetpack Compose, owning architecture, code quality and delivery.</li>
+            <li>Built <b>Babu POS</b>, a full point-of-sale application, end to end and independently as sole developer.</li>
+            <li>Drove the team's adoption of Kotlin Multiplatform (KMP) and Compose Multiplatform (CMP) to share business logic across Android and iOS, and mentored engineers on modern Android practices.</li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="item">
-      <div class="logo"><small>AL-TAWASOL</small></div>
+      <div class="logo"><small>AL-TAWASOL</small><img src="logos/al-tawasol.png" alt="Al-Tawasol" onerror="this.remove()"></div>
       <div class="it-body">
         <div class="it-title">Technical Team Lead | Senior Mobile Developer</div>
         <div class="it-co">Al-Tawasol (TOO) · Full-time</div>
         <div class="it-date">Jan 2018 – Nov 2022</div>
         <div class="it-desc">
           <ul>
-            <li>Technical lead for the <b>TOO ride-hailing platform</b> — TOO Passenger and TOO Captain apps — in Kotlin/Android.</li>
-            <li>Owned the full stack from mobile through backend: services in <b>Ktor and Laravel/PHP</b> backed by PostgreSQL, deployed on Oracle Cloud (OCI) with Docker and Nginx.</li>
-            <li>Integrated real-time GPS tracking, maps, push notifications and in-app payments via REST APIs across a multi-app ecosystem (8+ production apps on Google Play).</li>
+            <li>Technical lead for the <b>TOO ride-hailing platform</b> — TOO Passenger and TOO Captain apps — in Kotlin/Android for the Egyptian market.</li>
+            <li>Owned the full stack from mobile through backend and infrastructure: services in <b>Ktor and Laravel/PHP</b> backed by PostgreSQL, deployed and operated on Oracle Cloud (OCI) with Docker, Nginx and Linux administration.</li>
+            <li>Led architecture decisions, code review and release management while staying hands-on across the codebase (8+ production apps on Google Play).</li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="item">
-      <div class="logo">⌁</div>
+      <div class="logo"><small>Tech<br>Campus</small><img src="logos/techcampus.png" alt="TechCampus" onerror="this.remove()"></div>
       <div class="it-body">
-        <div class="it-title">Senior Android Developer / Mobile Engineer</div>
-        <div class="it-co">Multiple companies &amp; clients</div>
-        <div class="it-date">2011 – 2018</div>
+        <div class="it-title">Mobile Application Developer and Trainer</div>
+        <div class="it-co">TechCampus</div>
+        <div class="it-date">Oct 2017 – May 2018 · Saudi Arabia</div>
         <div class="it-desc">
-          Android developer since 2011 (Java, then Kotlin from 2015); delivered mobile apps across the full development cycle for Saudi and Egyptian clients, including a trainer/mentor role.
+          Sole developer for the company's Android application, working across the full development cycle in Java and Kotlin; also served as a trainer, teaching Android development and Kotlin to other developers.
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="logo"><small>Nebras<br>Apps</small><img src="logos/nebrasapps.png" alt="NebrasApps" onerror="this.remove()"></div>
+      <div class="it-body">
+        <div class="it-title">Senior Android Developer</div>
+        <div class="it-co">NebrasApps</div>
+        <div class="it-date">Nov 2016 – Oct 2017 · Cairo</div>
+        <div class="it-desc">
+          Senior Android engineer delivering native mobile applications in Java and Kotlin, based at The Greek Campus in Cairo; contributed to app architecture and feature development across the product lifecycle.
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="logo"><small>Media<br>Box</small><img src="logos/mediabox.png" alt="MediaBox.ads" onerror="this.remove()"></div>
+      <div class="it-body">
+        <div class="it-title">Team Leader</div>
+        <div class="it-co">MediaBox.ads</div>
+        <div class="it-date">May 2012 – Jun 2014</div>
+        <div class="it-desc">
+          Led a team building native mobile apps end to end; delivered Android projects covering REST web services, Sync Adapter, Content Provider and advanced object-oriented (OOP) design.
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="logo"><small>Free<br>lance</small></div>
+      <div class="it-body">
+        <div class="it-title">Freelance Java, PHP &amp; .NET Developer</div>
+        <div class="it-co">Freelancer</div>
+        <div class="it-date">Mar 2008 – Apr 2012 · Cairo</div>
+        <div class="it-desc">
+          Delivered software projects across Java, PHP and .NET for a range of clients at the start of a 17-year career in software.
         </div>
       </div>
     </div>
@@ -248,30 +288,26 @@
   <div class="card"><div class="card-pad">
     <h2>Skills</h2>
     <div class="pills">
-      <span class="pill hi">Kotlin</span>
-      <span class="pill hi">Kotlin Multiplatform (KMP)</span>
-      <span class="pill hi">Compose Multiplatform (CMP)</span>
-      <span class="pill hi">Jetpack Compose</span>
-      <span class="pill hi">Android Development</span>
-      <span class="pill hi">iOS Development</span>
-      <span class="pill hi">Agentic AI Development</span>
-      <span class="pill hi">Prompt Engineering</span>
-      <span class="pill hi">AI-Assisted Development</span>
-      <span class="pill hi">Large Language Models (LLM)</span>
-      <span class="pill">Ktor</span>
-      <span class="pill">Laravel / PHP</span>
-      <span class="pill">Node.js / NestJS</span>
-      <span class="pill">PostgreSQL</span>
-      <span class="pill">REST APIs</span>
-      <span class="pill">Docker</span>
-      <span class="pill">Oracle Cloud (OCI)</span>
-      <span class="pill">App Security (RASP, Cert Pinning)</span>
-      <span class="pill">Technical Leadership</span>
-      <span class="pill">Software Architecture</span>
       <span class="pill">Team Leadership</span>
       <span class="pill">Mobile Application Development</span>
-      <span class="pill">ZATCA e-Invoicing</span>
-      <span class="pill">Arabic/English (RTL)</span>
+      <span class="pill">Software Architecture</span>
+      <span class="pill">Technical Leadership</span>
+      <span class="pill">Oracle Cloud</span>
+      <span class="pill">PostgreSQL</span>
+      <span class="pill">Ktor</span>
+      <span class="pill hi">iOS Development</span>
+      <span class="pill hi">Compose Multiplatform</span>
+      <span class="pill hi">Large Language Models (LLM)</span>
+      <span class="pill hi">AI-Assisted Development</span>
+      <span class="pill hi">Prompt Engineering</span>
+      <span class="pill hi">Agentic AI Development</span>
+      <span class="pill hi">Jetpack Compose</span>
+      <span class="pill">Git</span>
+      <span class="pill">Laravel</span>
+      <span class="pill">Docker</span>
+      <span class="pill">Gradle</span>
+      <span class="pill">REST APIs</span>
+      <span class="pill">GraphQL</span>
     </div>
   </div></div>
 
