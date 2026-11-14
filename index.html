@@ -61,7 +61,9 @@
     position: absolute; left: 24px; bottom: -48px;
     display: flex; align-items: center; justify-content: center;
     color: #fff; font-size: 44px; font-weight: 600; letter-spacing: 1px;
+    overflow: hidden;
   }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
   .hero-body { padding: 60px 24px 22px; }
   .name { font-size: 26px; font-weight: 600; letter-spacing: -0.2px; }
   .headline { font-size: 15px; color: var(--ink); margin-top: 4px; }
@@ -146,7 +148,7 @@
 
   <!-- HERO -->
   <div class="card">
-    <div class="banner"><div class="avatar">MK</div></div>
+    <div class="banner"><div class="avatar"><img src="photo/avatar.jpg" alt="Mahmoud Kamal" onerror="this.remove();this.parentNode.textContent='MK'"></div></div>
     <div class="hero-body">
       <div class="name">Mahmoud Kamal</div>
       <div class="headline">Senior Mobile Developer (iOS / Android) &amp; Mobile Team Lead · Kotlin · Jetpack Compose · KMP/CMP · AI-Assisted Development</div>
@@ -189,7 +191,7 @@
     <h2>Experience</h2>
 
     <div class="item">
-      <div class="logo"><small>DevFact</small><img src="logos/devfact.png" alt="DevFact" onerror="this.remove()"></div>
+      <div class="logo"><small>DevFact</small><img src="logos/devfact.jpeg" alt="DevFact" onerror="this.remove()"></div>
       <div class="it-body">
         <div class="it-title">Founder &amp; Lead Mobile Engineer</div>
         <div class="it-co">DevFact (Dev Fact Software) · Self-employed</div>
@@ -204,7 +206,7 @@
     </div>
 
     <div class="item">
-      <div class="logo"><small>SAHM</small><img src="logos/sahm.png" alt="Sahm" onerror="this.remove()"></div>
+      <div class="logo"><small>SAHM</small><img src="logos/sahm.jpeg" alt="Sahm" onerror="this.remove()"></div>
       <div class="it-body">
         <div class="it-title">Android Team Lead</div>
         <div class="it-co">Sahm · Full-time</div>
@@ -220,7 +222,7 @@
     </div>
 
     <div class="item">
-      <div class="logo"><small>AL-TAWASOL</small><img src="logos/al-tawasol.png" alt="Al-Tawasol" onerror="this.remove()"></div>
+      <div class="logo"><small>AL-TAWASOL</small><img src="logos/al-tawasol.jpeg" alt="Al-Tawasol" onerror="this.remove()"></div>
       <div class="it-body">
         <div class="it-title">Technical Team Lead | Senior Mobile Developer</div>
         <div class="it-co">Al-Tawasol (TOO) · Full-time</div>
@@ -236,7 +238,7 @@
     </div>
 
     <div class="item">
-      <div class="logo"><small>Tech<br>Campus</small><img src="logos/techcampus.png" alt="TechCampus" onerror="this.remove()"></div>
+      <div class="logo"><small>Tech<br>Campus</small><img src="logos/techcampus.jpeg" alt="TechCampus" onerror="this.remove()"></div>
       <div class="it-body">
         <div class="it-title">Mobile Application Developer and Trainer</div>
         <div class="it-co">TechCampus</div>
@@ -248,7 +250,7 @@
     </div>
 
     <div class="item">
-      <div class="logo"><small>Nebras<br>Apps</small><img src="logos/nebrasapps.png" alt="NebrasApps" onerror="this.remove()"></div>
+      <div class="logo"><small>Nebras<br>Apps</small><img src="logos/nebrasapps.jpeg" alt="NebrasApps" onerror="this.remove()"></div>
       <div class="it-body">
         <div class="it-title">Senior Android Developer</div>
         <div class="it-co">NebrasApps</div>
@@ -260,7 +262,7 @@
     </div>
 
     <div class="item">
-      <div class="logo"><small>Media<br>Box</small><img src="logos/mediabox.png" alt="MediaBox.ads" onerror="this.remove()"></div>
+      <div class="logo"><small>Media<br>Box</small></div>
       <div class="it-body">
         <div class="it-title">Team Leader</div>
         <div class="it-co">MediaBox.ads</div>
